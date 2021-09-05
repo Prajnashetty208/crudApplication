@@ -1,0 +1,410 @@
+{
+	"info": {
+		"_postman_id": "69d0fd69-0049-4e56-8a90-ee398ff3bc74",
+		"name": "Orders",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ency/Decy",
+			"item": [
+				{
+					"name": "Encrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "pass",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/encrypt",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"encrypt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrypt",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "9a20bb74a6744d622cbd334baac618514c3ab44b776cc2cad02c51b603e532a5",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8001/decrypt",
+							"host": [
+								"localhost"
+							],
+							"port": "8001",
+							"path": [
+								"decrypt"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CRUD",
+			"item": [
+				{
+					"name": "Order",
+					"item": [
+						{
+							"name": "Save",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//Response validation\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"bodyData =  JSON.parse(responseBody);\r",
+											"console.log(bodyData.orderId);\r",
+											"pm.environment.set(\"id\",bodyData.orderId);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.variables.set(\"id\",\"12\");\r",
+											"console.log(\"id = \"+pm.variables.get(\"id\"));\r",
+											"\r",
+											"pm.globals.get(\"variable_key\");//Global\r",
+											"\r",
+											"//Before running -> dynamically changing headers"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\":\"{{name}}\",\r\n    \"date\":\"{{date}}\",\r\n    \"price\":200\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3306{{url}}/save",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306{{url}}",
+									"path": [
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3306{{url}}/getOrder",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306{{url}}",
+									"path": [
+										"getOrder"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find by Price",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3306{{url}}/getByPrice",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306{{url}}",
+									"path": [
+										"getByPrice"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3306{{url}}/getOrderId/2",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306{{url}}",
+									"path": [
+										"getOrderId",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3306{{url}}/deleteOrderId/{{id}}",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306{{url}}",
+									"path": [
+										"deleteOrderId",
+										"{{id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "PersonalDetails",
+					"item": [
+						{
+							"name": "find Details",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3306/api/details/getDetails/Sai/Mijar",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306",
+									"path": [
+										"api",
+										"details",
+										"getDetails",
+										"Sai",
+										"Mijar"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Save",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"//Response validation\r",
+											"pm.test(\"Status code is 200\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"pm.test(\"Response time is less than 200ms\", function () {\r",
+											"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+											"});\r",
+											"\r",
+											"bodyData =  JSON.parse(responseBody);\r",
+											"console.log(bodyData.orderId);\r",
+											"pm.environment.set(\"id\",bodyData.orderId);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"pm.variables.set(\"id\",\"12\");\r",
+											"console.log(\"id = \"+pm.variables.get(\"id\"));\r",
+											"\r",
+											"pm.globals.get(\"variable_key\");//Global\r",
+											"\r",
+											"//Before running -> dynamically changing headers"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"user_id\": 234,\r\n    \"firstname\": \"Prajna\",\r\n    \"address\": \"Mijar\",\r\n    \"status\": {\r\n        \"status_id\": \"1\",\r\n        \"status\": \"YES\"\r\n    },\r\n    \"contacts\": [\r\n        {\r\n            \"contact_id\": 31,\r\n            \"phone\": \"124579\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}:3306/api/details/save",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306",
+									"path": [
+										"api",
+										"details",
+										"save"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3306/api/details/getDetails",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306",
+									"path": [
+										"api",
+										"details",
+										"getDetails"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "find",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3306/api/details/getDetailsById/123",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306",
+									"path": [
+										"api",
+										"details",
+										"getDetailsById",
+										"123"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{host}}:3306/api/details/deletePersonalId/234",
+									"host": [
+										"{{host}}"
+									],
+									"port": "3306",
+									"path": [
+										"api",
+										"details",
+										"deletePersonalId",
+										"234"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"TEST started\");",
+					"",
+					"let urlVal = pm.variables.get(\"url\");//Collection level",
+					"console.log(\"url = \"+urlVal);"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "port",
+			"value": "8555"
+		},
+		{
+			"key": "url",
+			"value": "/api/order"
+		},
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "host",
+			"value": "localhost"
+		}
+	]
+}
