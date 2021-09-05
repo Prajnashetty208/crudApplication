@@ -9,9 +9,10 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "status_details")
 public class Status {
-
     @Id
-    @Column(name="dateVal")
-    private String status;
+    @Column(name="status_id")
+    private String status_id;
 
+    @Column(name="status")
+    private String status;
 }

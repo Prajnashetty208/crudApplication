@@ -37,12 +37,6 @@ public class Controller {
         return  new ResponseEntity<Order>(service.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/getDetails/{fname}/{lname}",produces = "application/json")
-    public ResponseEntity<Personal> getPersonalDetails(@PathVariable("fname") String fname,
-                                                    @PathVariable("lname") String lname ){
-        return  new ResponseEntity<Personal>(persService.getDetails(fname,lname), HttpStatus.OK);
-    }
-
     @DeleteMapping(value = "/deleteOrderId/{id}",produces = "application/json")
     public void deleteOrder(@PathVariable("id") long id){
         this.service.deleteOrder(id);
