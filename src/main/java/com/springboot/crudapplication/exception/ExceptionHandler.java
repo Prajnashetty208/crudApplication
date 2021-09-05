@@ -13,7 +13,7 @@ public class ExceptionHandler {
         return new ResponseEntity<Object>(ex,HttpStatus.NOT_FOUND);
     }
 
-    @org.springframework.web.bind.annotation.ExceptionHandler(OrderNotFoundException.class)
+    @org.springframework.web.bind.annotation.ExceptionHandler(PersonalDetailsNotFoundException.class)
     public ResponseEntity<Object> handlePersonalDetailsNotFoundException(PersonalDetailsNotFoundException e){
         CustomException ex = new CustomException("Details not found", HttpStatus.NOT_FOUND,e.getMessage());
         return new ResponseEntity<Object>(ex,HttpStatus.NOT_FOUND);
