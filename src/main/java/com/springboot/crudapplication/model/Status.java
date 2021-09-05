@@ -21,4 +21,8 @@ public class Status {
 
     @Column(name="status")
     private String status;
+
+    @ManyToOne
+    private Personal personal;
+
 }

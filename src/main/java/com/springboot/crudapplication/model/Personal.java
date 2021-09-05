@@ -20,16 +20,14 @@ public class Personal {
     @Column(name="user_id")
     private int user_id;
 
-    @Column(name="firstName")
-    private String firstName;
+    @Column(name="firstname")
+    private String firstname;
 
     @Column(name="address")
     private String address;
 
-    //@OneToOne(targetEntity=Status.class)
-    @OneToOne( cascade = CascadeType.ALL)
-    @JoinColumn( name = "status_id", referencedColumnName = "status_id")
-    private Status status;
+    @Column(name="status_id")
+    private int status_id;
 
     @OneToMany( cascade = CascadeType.ALL)
     @JoinColumn( name = "user_id", referencedColumnName = "user_id")

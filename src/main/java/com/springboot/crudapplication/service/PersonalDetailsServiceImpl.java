@@ -40,7 +40,7 @@ public class PersonalDetailsServiceImpl implements PersonalDetailsService {
 
     @Override
     public Personal getDetails(String name, String addr) {
-        Personal p = repo.findByFirstNameAndAddress(name,addr);
+        Personal p = repo.findByFirstnameAndAddress(name,addr);
         System.out.println(p);
         return p;
     }
