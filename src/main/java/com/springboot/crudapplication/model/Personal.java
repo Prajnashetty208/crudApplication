@@ -26,16 +26,13 @@ public class Personal {
     @Column(name="address")
     private String address;
 
-//    @Column(name="status_id")
-//    private String status_id;
-
     //@OneToOne(targetEntity=Status.class)
     @OneToOne( cascade = CascadeType.ALL)
     @JoinColumn( name = "status_id", referencedColumnName = "status_id")
     private Status status;
 
-//    @OneToMany( cascade = CascadeType.ALL)
-//    @JoinColumn( name = "contact_id", referencedColumnName = "contact_id")
-//    private List<Contact> contacts;
+    @OneToMany( cascade = CascadeType.ALL)
+    @JoinColumn( name = "user_id", referencedColumnName = "user_id")
+    private List<Contact> contacts;
 
 }

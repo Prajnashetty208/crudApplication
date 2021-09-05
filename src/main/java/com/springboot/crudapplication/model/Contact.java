@@ -11,7 +11,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "orderTable")
+@Table(name = "contact_details")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,14 +20,7 @@ public class Contact {
     @Column(name="contact_id")
     private int contact_id;
 
-//    @Column(name="user_id")
-//    private String user_id;
-
     @Column(name="phone")
     private String phone;
-
-    @ManyToOne()
-    @JoinColumn( name="user_id", referencedColumnName = "user_id")
-    private Personal personal;
 
 }
