@@ -1,9 +1,7 @@
 package com.springboot.crudapplication.control;
 
 import com.springboot.crudapplication.model.Order;
-import com.springboot.crudapplication.model.Personal;
 import com.springboot.crudapplication.service.OrderService;
-
 import com.springboot.crudapplication.service.PersonalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,7 +12,7 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/api/order/")
-public class Controller {
+public class OrderDetailsController {
 
     @Autowired
     public OrderService service;

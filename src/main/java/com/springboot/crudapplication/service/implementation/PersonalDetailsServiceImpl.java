@@ -1,11 +1,9 @@
-package com.springboot.crudapplication.service;
+package com.springboot.crudapplication.service.implementation;
 
-import com.springboot.crudapplication.exception.OrderNotFoundException;
 import com.springboot.crudapplication.exception.PersonalDetailsNotFoundException;
-import com.springboot.crudapplication.model.Order;
 import com.springboot.crudapplication.model.Personal;
 import com.springboot.crudapplication.repo.DetailsRepository;
-import com.springboot.crudapplication.repo.Repository;
+import com.springboot.crudapplication.service.PersonalDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

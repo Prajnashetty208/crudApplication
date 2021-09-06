@@ -1,8 +1,9 @@
-package com.springboot.crudapplication.service;
+package com.springboot.crudapplication.service.implementation;
 
 import com.springboot.crudapplication.exception.OrderNotFoundException;
 import com.springboot.crudapplication.model.Order;
-import com.springboot.crudapplication.repo.Repository;
+import com.springboot.crudapplication.repo.OrderRepository;
+import com.springboot.crudapplication.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.Set;
 @Service
 public class OrderServiceImpl implements OrderService {
     @Autowired
-    private Repository repo;
+    private OrderRepository repo;
 
     @Override
     public Order save(Order obj) {

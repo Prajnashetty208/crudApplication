@@ -19,7 +19,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserDetailsService service;
 
     @Bean
-    AuthenticationProvider authProvider(){
+    private AuthenticationProvider authProvider() {
         DaoAuthenticationProvider dao = new DaoAuthenticationProvider();
         //to Load by username
         dao.setUserDetailsService(service);
@@ -29,7 +29,7 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception{
+    protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/")
                 .permitAll()

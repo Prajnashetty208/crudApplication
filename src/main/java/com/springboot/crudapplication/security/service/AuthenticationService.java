@@ -2,7 +2,6 @@ package com.springboot.crudapplication.security.service;
 
 import com.springboot.crudapplication.security.model.User;
 import com.springboot.crudapplication.security.repo.UserRepository;
-import com.springboot.crudapplication.security.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class AuthenticationService implements UserDetailsService {
+
     @Autowired
     UserRepository repo;
 
