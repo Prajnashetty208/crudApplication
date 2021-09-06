@@ -1,9 +1,7 @@
 server:
-  port: 8080
+  port: 8082
 
 spring:
-  profile:
-    active: local
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -17,4 +15,3 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL81Dialect
         default_schema: sampleschema
-
