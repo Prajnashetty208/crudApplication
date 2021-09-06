@@ -4,12 +4,12 @@ import lombok.Data;
 import org.springframework.http.HttpStatus;
 
 @Data
-public class CustomException {
+public class CustomResponse {
     String reason;
     HttpStatus statusCode;
     String exception;
 
-    public CustomException(String reason, HttpStatus statusCode, String exception) {
+    public CustomResponse(String reason, HttpStatus statusCode, String exception) {
         this.reason = reason;
         this.statusCode = statusCode;
         this.exception = exception;

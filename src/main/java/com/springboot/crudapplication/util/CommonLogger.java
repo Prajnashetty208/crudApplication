@@ -19,15 +19,16 @@ public class CommonLogger {
     any number of arguments (..)
      */
     @Pointcut(value = "execution(* com.springboot.crudapplication.*.*.*(..))")
-    public void myPointCut(){ }
+    public void myPointCut(){
+        //do nothing
+    }
 
     @Around("myPointCut()")
     public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
         String method = pjp.getSignature().getName();
-        System.out.println(pjp.getSignature());
-        log.info("Started method : "+method);
+        log.info("Started method : ",method);
         Object o =pjp.proceed();
-        log.info("Ending method : "+method);
+        log.info("Ending method : ",method);
         return o;
     }
 }
