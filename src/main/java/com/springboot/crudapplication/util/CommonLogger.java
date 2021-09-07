@@ -18,15 +18,15 @@ public class CommonLogger {
     any package .* any class .* any method .*
     any number of arguments (..)
      */
-    @Pointcut(value = "execution(* com.springboot.crudapplication.*.*.*(..))")
+    @Pointcut(value = "execution(* com.springboot.crudapplication.control.*.*(..))")
     public void myPointCut(){ }
 
     @Around("myPointCut()")
     public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {
         String method = pjp.getSignature().getName();
-        log.info("Started method : ",method);
+        log.info("Started method : ",pjp.getSignature());
         Object o =pjp.proceed();
-        log.info("Ending method : ",method);
+        log.info("Ending method : ",pjp.getSignature());
         return o;
     }
 }
