@@ -1,9 +1,24 @@
-server.port=8089
-spring.datasource.url= jdbc:postgresql://localhost:5432/postgres
-spring.datasource.username= postgres
-spring.datasource.password = password
-spring.jpa.show-sql = true
-spring.jpa.hibernate.ddl-auto = update
-spring.profiles = local
-spring.jpa.properties.hibernate.dialect= org.hibernate.dialect.PostgreSQL81Dialect
-spring.jpa.properties.hibernate.default_schema: sampleschema
+server:
+  port: 8089
+
+spring:
+  profile: local
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+    schema:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+        default_schema: sampleschema
+  rabbitmq:
+    addresses: localhost:5672
+rabbit:
+  queueName: message_queue
+  exchangeName: message_exchange
+  routingKey: routing_key
