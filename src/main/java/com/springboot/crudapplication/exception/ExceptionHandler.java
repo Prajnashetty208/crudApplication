@@ -9,13 +9,19 @@ public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler(OrderNotFoundException.class)
     public ResponseEntity<Object> handleException(OrderNotFoundException e){
-        CustomException ex = new CustomException("Order not found", HttpStatus.NOT_FOUND,e.getMessage());
+        CustomResponse ex = new CustomResponse("Order not found", HttpStatus.NOT_FOUND,e.getMessage());
         return new ResponseEntity<Object>(ex,HttpStatus.NOT_FOUND);
     }
 
     @org.springframework.web.bind.annotation.ExceptionHandler(PersonalDetailsNotFoundException.class)
     public ResponseEntity<Object> handlePersonalDetailsNotFoundException(PersonalDetailsNotFoundException e){
-        CustomException ex = new CustomException("Details not found", HttpStatus.NOT_FOUND,e.getMessage());
+        CustomResponse ex = new CustomResponse("Details not found", HttpStatus.NOT_FOUND,e.getMessage());
         return new ResponseEntity<Object>(ex,HttpStatus.NOT_FOUND);
+    }
+
+    @org.springframework.web.bind.annotation.ExceptionHandler(RabbitMQException.class)
+    public ResponseEntity<Object> handleRMQException(RabbitMQException e){
+        CustomResponse ex = new CustomResponse("Details not found", HttpStatus.INTERNAL_SERVER_ERROR,e.getMessage());
+        return new ResponseEntity<Object>(ex,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 }

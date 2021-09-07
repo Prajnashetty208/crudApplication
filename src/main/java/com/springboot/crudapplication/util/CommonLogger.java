@@ -19,9 +19,7 @@ public class CommonLogger {
     any number of arguments (..)
      */
     @Pointcut(value = "execution(* com.springboot.crudapplication.*.*.*(..))")
-    public void myPointCut(){
-        //do nothing
-    }
+    public void myPointCut(){ }
 
     @Around("myPointCut()")
     public Object applicationLogger(ProceedingJoinPoint pjp) throws Throwable {

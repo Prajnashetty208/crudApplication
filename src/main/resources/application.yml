@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 3306
 
 spring:
   profile:
@@ -17,4 +17,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL81Dialect
         default_schema: sampleschema
-
+  rabbitmq:
+    addresses: localhost:5672
+rabbit:
+  queueName: message_queue
+  exchangeName: message_exchange
+  routingKey: routing_key
