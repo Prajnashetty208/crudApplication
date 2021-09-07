@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.Set;
 
 @RestController
@@ -17,7 +18,7 @@ public class PersonalDetailsController {
     public PersonalDetailsService service;
 
     @PostMapping(value = "/save", consumes = "application/json")
-    public ResponseEntity<Personal> savePersonal(@RequestBody Personal request){
+    public ResponseEntity<Personal> savePersonal(@Valid @RequestBody Personal request){
         return new ResponseEntity<Personal>(service.save(request), HttpStatus.OK);
     }
 
