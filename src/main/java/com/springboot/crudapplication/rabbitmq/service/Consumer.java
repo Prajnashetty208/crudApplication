@@ -15,10 +15,10 @@ public class Consumer {
     @Value("${rabbit.queueName}")
     private String queueName;
 
-    @Scheduled(cron = "* */20 * * * *")
-    public void scheduled(){
-        System.out.println("RMQ listener active");
-    }
+//    @Scheduled(cron = "* */20 * * * *")
+//    public void scheduled(){
+//        System.out.println("RMQ listener active");
+//    }
 
     @RabbitListener(queues = "message_queue")
     public void consume(RabbitMessage msg){

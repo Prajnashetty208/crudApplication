@@ -16,13 +16,11 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long orderId;
 
+    @Column(name="name")
     private String name;
 
-    @Column(name="dateVal")
-    private LocalDate date;
-
+    @Column(name="price")
     private int price;
 }

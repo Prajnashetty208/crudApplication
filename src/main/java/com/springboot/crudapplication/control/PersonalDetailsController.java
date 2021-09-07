@@ -32,6 +32,11 @@ public class PersonalDetailsController {
         return  new ResponseEntity<Personal>(service.findById(id), HttpStatus.OK);
     }
 
+    @GetMapping(value = "/getDetailsByOrderId/{id}",produces = "application/json")
+    public ResponseEntity<Personal> getByOrderId(@PathVariable("id") long id){
+        return  new ResponseEntity<Personal>(service.findByOrderId(id), HttpStatus.OK);
+    }
+
     @GetMapping(value = "/getDetails/{fname}/{addr}",produces = "application/json")
     public ResponseEntity<Personal> getPersonalDetails(@PathVariable("fname") String fname,
                                                     @PathVariable("addr") String addr ){

@@ -23,3 +23,6 @@ rabbit:
   queueName: message_queue
   exchangeName: message_exchange
   routingKey: routing_key
+
+service:
+  url: http://localhost:8089/api/details/getDetailsById/

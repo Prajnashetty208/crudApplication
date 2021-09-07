@@ -1,4 +1,7 @@
 DROP TABLE IF EXISTS personal_details CASCADE;
+DROP TABLE IF EXISTS contact_details CASCADE;
+DROP TABLE IF EXISTS status_details CASCADE;
+DROP TABLE IF EXISTS order_table CASCADE;
 CREATE TABLE personal_details (
    user_id int PRIMARY KEY,
    firstName varchar(20) NOT NULL,
@@ -13,7 +16,7 @@ ADD CONSTRAINT fk_status FOREIGN KEY(status_id)  REFERENCES status_details(statu
 INSERT INTO personal_details(user_id, firstName, address, status_id)
 VALUES (123, 'Sai', 'Mijar',1);
 
-DROP TABLE IF EXISTS contact_details CASCADE;
+
 CREATE TABLE contact_details (
    contact_id int PRIMARY KEY,
    user_id int,
@@ -27,7 +30,6 @@ VALUES (33, 123, '2345678');
 ALTER TABLE contact_details 
 ADD CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES personal_details(user_id);
 
-DROP TABLE IF EXISTS status_details CASCADE;
 CREATE TABLE status_details (
 status varchar(20) NOT NULL,
    status_id varchar(20) PRIMARY KEY NOT NULL
@@ -48,3 +50,5 @@ Update roles set password ='$2a$12$wGVEuT8oZ9fLizib3J31i.KIK1GsKHsSZ4pD/YKBIAyKZ
 where name='abc';
 
 //ALTER USER postgres WITH PASSWORD 'password';
+
+SELECT * FROM personal_details p join order_table o on o.user_id = p.user_id WHERE o.order_id = 12;

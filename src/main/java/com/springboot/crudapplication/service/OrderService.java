@@ -9,4 +9,5 @@ public interface OrderService {
     Set<Order> findAll();
     Order findById(Long id);
     void deleteOrder(Long id);
+    String findUser(Long id);
 }

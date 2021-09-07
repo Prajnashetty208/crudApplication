@@ -10,5 +10,6 @@ public interface PersonalDetailsService {
     Personal findById(int id);
     void deletePersonal(int id);
     Personal getDetails(String name, String addr);
+    Personal findByOrderId(long id);
 
 }

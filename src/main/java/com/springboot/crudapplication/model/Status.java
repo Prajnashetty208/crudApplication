@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -21,7 +22,8 @@ public class Status {
     @Column(name="status")
     private String status;
 
-    @ManyToOne
-    private Personal personal;
+    @OneToMany( cascade = CascadeType.ALL)
+    @JoinColumn( name = "status_id", referencedColumnName = "status_id")
+    private List<Personal> personal;
 
 }

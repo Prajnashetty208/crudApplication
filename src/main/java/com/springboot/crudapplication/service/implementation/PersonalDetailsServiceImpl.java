@@ -55,4 +55,9 @@ public class PersonalDetailsServiceImpl implements PersonalDetailsService {
         System.out.println(p);
         return p;
     }
+
+    @Override
+    public Personal findByOrderId(long id) {
+        return repo.findByOrderId(id);
+    }
 }

@@ -62,6 +62,8 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .permitAll()
                 .antMatchers(HttpMethod.POST,"/api/**")
                 .hasAuthority("USER")
+                .antMatchers(HttpMethod.GET,"/api/order/**")
+                .hasAuthority("USER")
                 .antMatchers("/home")
                 .hasAuthority("USER")
                 .antMatchers("/admin")

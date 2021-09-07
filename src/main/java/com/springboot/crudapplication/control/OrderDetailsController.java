@@ -17,9 +17,6 @@ public class OrderDetailsController {
     @Autowired
     public OrderService service;
 
-    @Autowired
-    public PersonalDetailsService persService;
-
     @PostMapping(value = "/save", consumes = "application/json")
     public ResponseEntity<Order> saveOrder(@RequestBody Order request){
         return new ResponseEntity<Order>(service.save(request), HttpStatus.OK);
@@ -28,6 +25,11 @@ public class OrderDetailsController {
     @GetMapping(value = "/getOrder",produces = "application/json")
     public ResponseEntity<Set<Order>> getOrder(){
         return  new ResponseEntity<Set<Order>>(service.findAll(), HttpStatus.OK);
+    }
+
+    @GetMapping(value = "/getUserName/{id}",produces = "application/json")
+    public ResponseEntity<String> getOrder(@PathVariable("id") Long id){
+        return  new ResponseEntity<String>(service.findUser(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/getOrderId/{id}",produces = "application/json")

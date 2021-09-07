@@ -21,9 +21,6 @@ import java.util.List;
 public class Personal {
     @Id
     @Column(name="user_id")
-    @NotBlank(message = "User Id is mandatory")
-    @NotEmpty(message = "User Id cannot be empty")
-    @NotNull(message = "User Id cannot be null")
     private int user_id;
 
     @Column(name="firstname")
@@ -39,12 +36,15 @@ public class Personal {
     private String address;
 
     @Column(name="status_id")
-    @NotBlank(message = "Status Id is mandatory")
-    @Length(max=5, min=2)
+    //@Length(max=5, min=1)
     private int status_id;
 
     @OneToMany( cascade = CascadeType.ALL)
     @JoinColumn( name = "user_id", referencedColumnName = "user_id")
     private List<Contact> contacts;
+
+    @OneToMany( cascade = CascadeType.ALL)
+    @JoinColumn( name = "user_id", referencedColumnName = "user_id")
+    private List<Order> orders;
 
 }
