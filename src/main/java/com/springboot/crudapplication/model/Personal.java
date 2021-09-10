@@ -20,8 +20,8 @@ import java.util.List;
 @AllArgsConstructor
 public class Personal {
     @Id
-    @Column(name="user_id")
-    private int user_id;
+    @Column(name="userid")
+    private int userid;
 
     @Column(name="firstname")
     @NotBlank(message = "First name is mandatory")
@@ -35,16 +35,16 @@ public class Personal {
     @NotNull(message = "Status Id cannot be null")
     private String address;
 
-    @Column(name="status_id")
+    @Column(name="statusid")
     //@Length(max=5, min=1)
-    private int status_id;
+    private int statusid;
 
     @OneToMany( cascade = CascadeType.ALL)
-    @JoinColumn( name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn( name = "userid", referencedColumnName = "userid")
     private List<Contact> contacts;
 
     @OneToMany( cascade = CascadeType.ALL)
-    @JoinColumn( name = "user_id", referencedColumnName = "user_id")
+    @JoinColumn( name = "userid", referencedColumnName = "userid")
     private List<Order> orders;
 
 }

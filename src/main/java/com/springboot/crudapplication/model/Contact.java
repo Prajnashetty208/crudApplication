@@ -18,8 +18,8 @@ import javax.persistence.Table;
 @AllArgsConstructor
 public class Contact {
     @Id
-    @Column(name="contact_id")
-    private int contact_id;
+    @Column(name="contactid")
+    private int contactid;
 
     @Column(name="phone")
     private String phone;

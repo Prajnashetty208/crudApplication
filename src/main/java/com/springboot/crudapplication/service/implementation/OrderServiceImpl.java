@@ -55,10 +55,11 @@ public class OrderServiceImpl implements OrderService {
         headers.setBasicAuth("abc","abc");
         HttpEntity<String> entity = new HttpEntity<String>(headers);
         String requestUrl = url.concat(Long.toString(id));
-        ResponseEntity<Personal> details =
-                rest.exchange(requestUrl, HttpMethod.GET,entity,Personal.class);
-        System.out.println(details);
-        return details.getBody().getFirstname();
+        System.out.println("url "+requestUrl);
+        ResponseEntity<String> details =
+                rest.exchange(requestUrl, HttpMethod.GET,entity,String.class);
+        System.out.println("details "+details);
+        return details.getBody();
     }
 
 }

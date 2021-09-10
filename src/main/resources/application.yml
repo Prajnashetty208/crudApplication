@@ -1,13 +1,15 @@
 server:
-  port: 3306
+  port: 8089
 
 spring:
-  profile:
-    active: local
+  profile: main
+  profiles:
+    active: main
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
-    password: password
+#    password: password
+    password: postgres
     schema:
   jpa:
     show-sql: true

@@ -16,14 +16,14 @@ import java.util.List;
 @AllArgsConstructor
 public class Status {
     @Id
-    @Column(name="status_id")
-    private String status_id;
+    @Column(name="statusid")
+    private String statusid;
 
     @Column(name="status")
     private String status;
 
     @OneToMany( cascade = CascadeType.ALL)
-    @JoinColumn( name = "status_id", referencedColumnName = "status_id")
+    @JoinColumn( name = "statusid", referencedColumnName = "statusid")
     private List<Personal> personal;
 
 }

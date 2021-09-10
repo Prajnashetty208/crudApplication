@@ -33,8 +33,8 @@ public class PersonalDetailsController {
     }
 
     @GetMapping(value = "/getDetailsByOrderId/{id}",produces = "application/json")
-    public ResponseEntity<Personal> getByOrderId(@PathVariable("id") long id){
-        return  new ResponseEntity<Personal>(service.findByOrderId(id), HttpStatus.OK);
+    public ResponseEntity<String> getByOrderId(@PathVariable("id") long id){
+        return  new ResponseEntity<String>(service.findByOrderId(id), HttpStatus.OK);
     }
 
     @GetMapping(value = "/getDetails/{fname}/{addr}",produces = "application/json")

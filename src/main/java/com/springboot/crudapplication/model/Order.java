@@ -10,13 +10,13 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Table(name = "orderTable")
+@Table(name = "order_table")
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Order {
     @Id
-    private Long orderId;
+    private Long orderid;
 
     @Column(name="name")
     private String name;

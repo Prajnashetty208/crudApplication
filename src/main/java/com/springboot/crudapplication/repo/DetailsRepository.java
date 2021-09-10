@@ -10,11 +10,11 @@ public interface DetailsRepository extends JpaRepository<Personal, Integer> {
 
     Personal findByFirstnameAndAddress(String firstname, String address);
 
-    @Query( value = "SELECT * FROM personal_details p join order_table o" +
-            " on o.user_id = p.user_id" +
-            " WHERE o.order_id = :id",
+    @Query( value = "SELECT p.firstname FROM personal_details p join order_table o" +
+            " on o.userid = p.userid" +
+            " WHERE o.orderid   = :id",
             nativeQuery = true)
-    Personal findByOrderId(@Param("id")long id);
+    String findByOrderId(@Param("id")long id);
 
 }
 
